@@ -105,7 +105,7 @@ objects:
                 - name: KUBECTL_VERSION
                 - name: WORKSHOP_VARS
                   value: ${WORKSHOP_VARS}
-              image: ${WORKSHOP_IMAGE}
+              image: ${IMAGE}
               imagePullPolicy: IfNotPresent
               ports:
                 - containerPort: 10080
