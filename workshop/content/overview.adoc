@@ -1,8 +1,32 @@
 :guid: %guid%
 :user: %user%
+:ssh_command: %ssh_password%
 :markup-in-source: verbatim,attributes,quotes
+:my_deep_var_underbars: %my_deep_var%
+:my_deep_var_dots: %my.deep.var%
 
 == Overview
+
+You can access ENV variables as flattened % surrounded variables in these templated asciddoc files.
+
+=== variables from ENV as asciidoc attributes
+
+NOTE: json objects are flattned and joined with a `.`.
+As a side-effect of the `.`, any character will match the `.` in the variable name.
+
+.Example: All of these function
+----
+:my_deep_var_underbars: %my_deep_var%
+:my_deep_var_dots: %my.deep.var%
+
+my_deep_var_underbars: {my_deep_var_underbars}
+my_deep_var_dots: {my_deep_var_dots}
+
+my_deep_var_underbars: %my_deep_var%
+my_deep_var_dots: %my.deep.var%
+----
+
+== Intro
 
 In this workshop you will... to be completed by the workshop developer.
 The following content is an example of what to include in an overview.

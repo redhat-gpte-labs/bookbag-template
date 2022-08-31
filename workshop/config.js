@@ -1,5 +1,22 @@
 var fs = require('fs');
 
+function flatten_vars(vars_object) {
+  const ret = {}
+  for (const varname in vars_object) {
+    const value = vars_object[varname];
+    if (typeof value === 'object') {
+      const flattened_vars = flatten_vars(value);
+      for (const k in flattened_vars) {
+        ret[varname + '.' + k] = flattened_vars[k]
+      }
+    } else {
+      ret[varname] = value;
+    }
+  }
+  return ret
+}
+
+
 function initialize(workshop) {
     workshop.load_workshop();
 
@@ -17,12 +34,13 @@ function initialize(workshop) {
     }
 
     try {
-        workshop_vars = JSON.parse(process.env['WORKSHOP_VARS'])
+        workshop_vars = flatten_vars(JSON.parse(process.env['WORKSHOP_VARS']))
         for (var varname in workshop_vars) {
             workshop.data_variable(varname, workshop_vars[varname]);
         }
     } catch(err) {}
 }
+
 
 exports.default = initialize;
 

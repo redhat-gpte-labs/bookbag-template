@@ -5,11 +5,11 @@
 NOTE: This project is based on OpenShift Homeroom: https://github.com/openshift-homeroom.
 This repository is based on https://github.com/openshift-homeroom/lab-asciidoc-sample.
 If you are using OpenShift Homeroom project already, please continue using it.
-If you want to integrate it with AgnosticD, follow the instructions in 
+If you want to integrate it with AgnosticD, follow the instructions in
 <<If you Deploy Homeroom Directly from Agnosticd>>
 
 This repository should be used as a template for creating (converting) lab content to
-be used in Bookbag environments. 
+be used in Bookbag environments.
 
 == Using this Template
 
@@ -62,8 +62,9 @@ $ *oc start-build bookbag --follow*
 
 == Test Deploy of the Bookbag image
 
-. Define a variables file, `workshop-vars.js`, to define variables for testing  your lab content:
+. Define a variables file, `workshop-vars.json`, to define variables for testing  your lab content:
 +
+[source,json]
 ----
 {
     "guid": "abcde",
@@ -71,9 +72,16 @@ $ *oc start-build bookbag --follow*
     "ssh_command": "ssh lab-user@bastion.abcde.example.com",
     "ssh_password": "p4ssword!1",
     "user": "lab-user",
-    "user_info_messages": "Example workshop messages:\nHello, World"
+    "user_info_messages": "Example workshop messages:\nHello, World",
+    "my": {
+        "deep": {
+            "var": "flattened data"
+        }
+    }
 }
 ----
+NOTE: Nested json data is now flattened and joined with a `.`.
+Use in your asciidoc: %my.deep.var%
 
 . Process the deploy template with your `workshop-vars.json`:
 +
