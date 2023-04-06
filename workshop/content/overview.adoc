@@ -19,11 +19,11 @@ As a side-effect of the `.`, any character will match the `.` in the variable na
 :my_deep_var_underbars: %my_deep_var%
 :my_deep_var_dots: %my.deep.var%
 
-my_deep_var_underbars: {my_deep_var_underbars}
-my_deep_var_dots: {my_deep_var_dots}
+:my_deep_var_underbars: {my_deep_var_underbars}
+:my_deep_var_dots: {my_deep_var_dots}
 
-my_deep_var_underbars: %my_deep_var%
-my_deep_var_dots: %my.deep.var%
+:my_deep_var_underbars: %my_deep_var%
+:my_deep_var_dots: %my.deep.var%
 ----
 
 == Intro
