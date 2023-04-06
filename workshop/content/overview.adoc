@@ -7,14 +7,15 @@
 
 == Overview
 
-You can access environment variables as flattened {}-surrounded variables in these templated AsciiDoc files.
+You can access environment variables as flattened `{}`-surrounded variables in these templated AsciiDoc files.
 
 === Variables from ENV as AsciiDoc attributes
 
-NOTE: JSON objects are flattened and joined with a ..
-As a side-effect of the ., any character will match the . in the variable name.
+NOTE: JSON objects are flattened and joined with a `.`.
+As a side-effect of the `.`, any character will match the `.` in the variable name.
 
 .Example: All of these function
+----
 :my_deep_var_underbars: {my_deep_var}
 :my_deep_var_dots: {my.deep.var}
 
@@ -23,6 +24,8 @@ As a side-effect of the ., any character will match the . in the variable name.
 
 :my_deep_var_underbars: {my_deep_var}
 :my_deep_var_dots: {my.deep.var}
+----
+
 == Intro
 
 In this workshop, you will... to be completed by the workshop developer.
@@ -33,7 +36,10 @@ The following content is an example of what to include in an overview.
 You can access your lab environment as {user} with password "{ssh_password}" with the following command:
 
 [source,bash,options="nowrap",subs="{markup-in-source}"]
+----
 {ssh_command}
+----
+
 Your lab GUID is "{guid}".
 
 An example var was set to {example_var}.
@@ -43,4 +49,6 @@ An example var was set to {example_var}.
 Informational messages generated for your workshop:
 
 [source,bash,options="nowrap"]
+----
 {user_info_messages}
+----
